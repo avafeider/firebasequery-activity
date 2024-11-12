@@ -53,7 +53,12 @@ let team7 = {
   worldwidefansinmillions: 400,
 };
 // ADD DOCUMENTS TO DB
-db.collection("teams").add(team1);
+db.collection("teams").add(team2);
+db.collection("teams").add(team3);
+db.collection("teams").add(team4);
+db.collection("teams").add(team5);
+db.collection("teams").add(team6);
+db.collection("teams").add(team7);
 
 // Questions
 // Q1
