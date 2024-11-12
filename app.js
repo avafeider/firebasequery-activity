@@ -52,3 +52,8 @@ let team7 = {
   topscorers: ["Aragones", "Griezmann", "Torez"],
   worldwidefansinmillions: 400,
 };
+// ADD DOCUMENTS TO DB
+db.collection("teams").add(team1, team2, team3, team4, team5, team6, team7);
+
+// Questions
+// Q1
