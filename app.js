@@ -55,5 +55,10 @@ let team7 = {
 // ADD DOCUMENTS TO DB
 db.collection("teams").add(team1, team2, team3, team4, team5, team6, team7);
 
+function addteam(team) {
+  db.collection("teams").add(team);
+}
+
+addteam(team1);
 // Questions
 // Q1
