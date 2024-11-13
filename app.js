@@ -1,3 +1,4 @@
+// Task 1: Creating/Storing data
 let team1 = {
   teamname: "Real Madrid",
   city: "Madrid",
@@ -63,7 +64,7 @@ let team7 = {
 // db.collection("teams").add(team6);
 // db.collection("teams").add(team7);
 
-// Questions
+// Task 2: Querying data
 // Q1
 db.collection("teams")
   .where("country", "==", "Spain")
@@ -190,7 +191,7 @@ db.collection("teams")
     });
   });
 
-// task 2
+// Task 3: Updating data
 // a1
 db.collection("teams")
   .doc("jMWWk11FNLLoWDIlp6Dj")
@@ -255,7 +256,10 @@ db.collection("teams").doc("QDGYc1Uz947y4ljH5VOw").update({
   color: color["FC Barcelona"],
 });
 
+// c
 color["Real Madrid"].away = "Purple";
+
+// d
 color["FC Barcelona"].away = "Pink";
 
 console.log(color);
