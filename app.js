@@ -108,6 +108,18 @@ db.collection("teams")
   });
 
 // Q3
+db.collection("teams")
+  .get()
+  .then((data) => {
+    let mydocs = data.docs;
+    let text = "";
+    mydocs.forEach((d) => {
+      if (d.data().teamname.includes("National Team")) {
+        text += `${d.data().teamname} </br>`;
+      }
+    });
+    r_e("q3").innerHTML = text;
+  });
 
 // Q4
 db.collection("teams")
