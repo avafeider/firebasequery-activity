@@ -59,8 +59,7 @@ let team7 = {
   worldwidefansinmillions: 400,
 };
 
-// console.log(team1);
-
+// create "teams" collection and add team documents
 // db.collection("teams").add(team1);
 // db.collection("teams").add(team2);
 // db.collection("teams").add(team3);
@@ -71,18 +70,12 @@ let team7 = {
 
 // Task 2: Querying data
 // Q1
-console.log(r_e("q1").innerHTML);
-
 db.collection("teams")
   .where("country", "==", "Spain")
   .get()
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -97,10 +90,6 @@ db.collection("teams")
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -128,10 +117,6 @@ db.collection("teams")
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -145,10 +130,6 @@ db.collection("teams")
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length === 0) {
-      console.log("No team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -156,7 +137,6 @@ db.collection("teams")
   });
 
 // Q6
-console.log("q6");
 db.collection("teams")
   .where("country", "==", "Spain")
   .where("worldwidefansinmillions", ">", 700)
@@ -164,10 +144,6 @@ db.collection("teams")
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -182,10 +158,6 @@ db.collection("teams")
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -193,17 +165,12 @@ db.collection("teams")
   });
 
 // // Q8
-console.log("q8");
 db.collection("teams")
   .where("topscorers", "array-contains", "Ronaldo")
   .get()
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -211,17 +178,12 @@ db.collection("teams")
   });
 
 // // Q9
-console.log("q9");
 db.collection("teams")
   .where("topscorers", "array-contains-any", ["Ronaldo", "Maradona", "Messi"])
   .get()
   .then((data) => {
     let mydocs = data.docs;
     let text = "";
-    if (mydocs.length == 0) {
-      console.log("no team found");
-      return;
-    }
     mydocs.forEach((d) => {
       text += `${d.data().teamname} </br>`;
     });
@@ -298,5 +260,3 @@ color["Real Madrid"].away = "Purple";
 
 // d
 color["FC Barcelona"].away = "Pink";
-
-console.log(color);
