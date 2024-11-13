@@ -1,3 +1,8 @@
+// Functions
+function r_e(id) {
+  return document.querySelector(`#${id}`);
+}
+
 // Task 1: Creating/Storing data
 let team1 = {
   teamname: "Real Madrid",
@@ -24,7 +29,7 @@ let team3 = {
 };
 
 let team4 = {
-  teamname: "Machester City",
+  teamname: "Manchester City",
   city: "Manchester",
   country: "England",
   topscorers: ["Sterling", "Aguero", "Haaland"],
@@ -66,19 +71,24 @@ let team7 = {
 
 // Task 2: Querying data
 // Q1
+console.log(r_e("q1").innerHTML);
+
 db.collection("teams")
   .where("country", "==", "Spain")
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q1").innerHTML = text;
   });
+
 // Q2
 db.collection("teams")
   .where("city", "==", "Madrid")
@@ -86,48 +96,54 @@ db.collection("teams")
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q2").innerHTML = text;
   });
 
-// q3
+// Q3
 
-// q4
+// Q4
 db.collection("teams")
   .where("country", "!=", "Spain")
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q4").innerHTML = text;
   });
 
-// q5
+// Q5
 db.collection("teams")
   .where("country", "not-in", ["Spain", "England"])
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length === 0) {
       console.log("No team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q5").innerHTML = text;
   });
 
-// q6
+// Q6
 console.log("q6");
 db.collection("teams")
   .where("country", "==", "Spain")
@@ -135,60 +151,69 @@ db.collection("teams")
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q6").innerHTML = text;
   });
 
-// q7
+// Q7
 db.collection("teams")
   .where("worldwidefansinmillions", ">", 500)
   .where("worldwidefansinmillions", "<", 600)
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q7").innerHTML = text;
   });
-// // q8
+
+// // Q8
 console.log("q8");
 db.collection("teams")
   .where("topscorers", "array-contains", "Ronaldo")
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q8").innerHTML = text;
   });
 
-// // q9
+// // Q9
 console.log("q9");
 db.collection("teams")
   .where("topscorers", "array-contains-any", ["Ronaldo", "Maradona", "Messi"])
   .get()
   .then((data) => {
     let mydocs = data.docs;
+    let text = "";
     if (mydocs.length == 0) {
       console.log("no team found");
       return;
     }
     mydocs.forEach((d) => {
-      console.log(d.data().teamname);
+      text += `${d.data().teamname} </br>`;
     });
+    r_e("q9").innerHTML = text;
   });
 
 // Task 3: Updating data
